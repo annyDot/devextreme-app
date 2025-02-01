@@ -1,0 +1,135 @@
+<form [formGroup]="form" class="add-user-form">
+  <div class="form-grid">
+    <div class="form-column">
+      <label for="firstName">Ime <span class="asterix">*</span></label>
+      <dx-text-box
+        formControlName="firstName"
+        class="form-control"
+      ></dx-text-box>
+
+      <label for="lastName">Prezime <span class="asterix">*</span></label>
+      <dx-text-box
+        formControlName="lastName"
+        class="form-control"
+      ></dx-text-box>
+
+      <label for="gender">Spol <span class="asterix">*</span></label>
+      <dx-select-box
+        [dataSource]="genderData"
+        valueExpr="id"
+        displayExpr="value"
+        formControlName="gender"
+        class="form-control"
+      ></dx-select-box>
+
+      <label for="workplace">Radno mjesto <span class="asterix">*</span></label>
+      <dx-select-box
+        [dataSource]="workplaceData"
+        valueExpr="id"
+        displayExpr="value"
+        formControlName="workplace"
+        class="form-control"
+      ></dx-select-box>
+
+      <label for="notes">Bilješke</label>
+      <dx-text-area formControlName="notes" class="form-control"></dx-text-area>
+    </div>
+
+    <div class="form-column">
+      <label for="email">Email <span class="asterix">*</span></label>
+      <dx-text-box
+        formControlName="email"
+        class="form-control"
+        placeholder="example@example.com"
+      ></dx-text-box>
+
+      <label for="phone">Telefon</label>
+      <dx-text-box
+        formControlName="phone"
+        type="tel"
+        placeholder="+385123456789"
+        class="form-control"
+      ></dx-text-box>
+
+      <label for="country">Država <span class="asterix">*</span></label>
+      <dx-select-box
+        [dataSource]="countryData"
+        valueExpr="id"
+        displayExpr="value"
+        formControlName="country"
+        class="form-control"
+      ></dx-select-box>
+
+      <label for="city">Grad <span class="asterix">*</span></label>
+      <dx-select-box
+        [dataSource]="cityData"
+        valueExpr="id"
+        displayExpr="value"
+        formControlName="city"
+        class="form-control"
+      ></dx-select-box>
+
+      <label for="address">Adresa</label>
+      <dx-text-box
+        formControlName="address"
+        type="address"
+        class="form-control"
+      ></dx-text-box>
+    </div>
+
+    <div class="form-column">
+      <label for="username"
+        >Korisničko ime <span class="asterix">*</span></label
+      >
+      <dx-text-box
+        formControlName="username"
+        class="form-control"
+      ></dx-text-box>
+
+      <label for="password">Nova lozinka</label>
+      <dx-text-box
+        formControlName="password"
+        type="password"
+        [(mode)]="passwordMode"
+        class="form-control"
+      >
+        <dxi-button
+          name="today"
+          location="after"
+          [options]="passwordButton"
+        ></dxi-button>
+      </dx-text-box>
+
+      <div class="role-separator"></div>
+
+      <label for="role" class="role-label"
+        >Rola <span class="asterix">*</span></label
+      >
+
+      <div class="form-control role-control">
+        @for (role of roles; track $index) {
+        <dx-check-box
+          [text]="role"
+          [value]="isRoleChecked(role)"
+          (onValueChanged)="onRoleCheckboxChange($event, role)"
+        ></dx-check-box>
+        }
+      </div>
+    </div>
+  </div>
+</form>
+
+@if(buttons.length) {
+<div class="modal-footer">
+  @for (button of buttons; track $index) {
+  <dx-button
+    [class]="button.type === 'cancel' ? 'secondary' : 'primary'"
+    [disabled]="button.type === 'save' && form.invalid"
+    (click)="onBtnClick(button.type)"
+  >
+    {{ button.label }}
+  </dx-button>
+  }
+</div>
+
+}

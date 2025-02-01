@@ -1,0 +1,22 @@
+@use 'colors' as *;
+@use 'fonts' as *;
+
+:host {
+    height: 100%;
+    width: 100%;
+}
+
+:host::ng-deep dx-data-grid {
+    width: 100% !important;
+    padding: 0 1rem;
+
+    .dx-datagrid-headers {
+        background-color: $gray-light-alt;
+
+        .dx-datagrid-text-content {
+            color: $black;
+            font-weight: $font-weight-bold;
+            text-transform: uppercase;
+        }
+    }
+}

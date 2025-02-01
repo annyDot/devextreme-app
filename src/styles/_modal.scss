@@ -1,0 +1,62 @@
+@use 'colors' as *;
+@use 'mixins' as *;
+@use 'fonts' as *;
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.modal-content {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: $white;
+    overflow: hidden;
+    z-index: 1001;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.modal-header {
+    padding: 16px;
+    border-bottom: 1px solid $snow;
+    @include flex-justify-between;
+    color: $black;
+
+    .title {
+        text-transform: uppercase;
+        font-weight: $font-weight-medium;
+    }
+}
+
+:host::ng-deep .dx-button:has(.dx-icon-close) {
+    all: unset;
+    cursor: pointer;
+}
+
+.modal-body {
+    padding: 16px;
+}
+
+.modal-footer {
+    @include flex-align-center;
+    gap: 1rem;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 16px;
+    background-color: $white;
+}
+
+.close-button {
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}

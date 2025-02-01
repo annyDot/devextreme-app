@@ -1,0 +1,15 @@
+<dx-toolbar class="header">
+  <dxi-item location="before">
+    <div class="header-title">{{ title() }}</div>
+  </dxi-item>
+
+  @for(action of actions(); track $index) {
+  <dxi-item location="after">
+    <dx-button
+      [icon]="action.icon"
+      (onClick)="onActionClick(action)"
+      [disabled]="action.disabled"
+    ></dx-button>
+  </dxi-item>
+  }
+</dx-toolbar>

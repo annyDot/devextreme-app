@@ -1,0 +1,10 @@
+@use 'colors' as *;
+
+input {
+    width: 100%;
+}
+
+.p-inputgroup .p-inputgroup-addon {
+    background-color: $snow; 
+    color: $gray;
+  }

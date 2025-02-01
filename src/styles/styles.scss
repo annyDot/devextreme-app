@@ -1,0 +1,36 @@
+@use 'input' as *;
+@use 'colors' as *;
+@use 'fonts' as *;
+@use 'modal' as *;
+@use 'button' as *;
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: $font-size-md;
+    line-height: 1.5;
+    color: $black;
+    background-color: $white;
+    height: 95vh;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+.asterix {
+    color: $danger;
+}

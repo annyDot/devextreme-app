@@ -1,0 +1,14 @@
+<div class="modal-overlay" (click)="onClose()"></div>
+<div
+  [style.width.px]="config.width ?? defaultWidth"
+  [style.height.px]="config.height ?? defaultHeight"
+  class="modal-content"
+>
+  <div class="modal-header">
+    <span class="title">{{ config.title }}</span>
+    <dx-button [icon]="'close'" (onClick)="onClose()"></dx-button>
+  </div>
+  <div class="modal-body">
+    <ng-template #dynamicComponent></ng-template>
+  </div>
+</div>

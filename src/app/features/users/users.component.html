@@ -1,0 +1,18 @@
+<app-header
+  title="Users"
+  [actions]="userActions"
+  (actionClicked)="onActionClick($event)"
+/>
+<dx-data-grid
+  [dataSource]="usersService.users$ | async"
+  [columns]="tableColumns"
+  [showBorders]="true"
+  [rowAlternationEnabled]="true"
+  [wordWrapEnabled]="true"
+  [columnAutoWidth]="true"
+  [paging]="{ pageSize: 20 }"
+  [searchPanel]="{ visible: true, width: 240, placeholder: 'Search...' }"
+  (onSelectionChanged)="onSelectedRowChange($event)"
+>
+  <dxo-selection mode="single"></dxo-selection>
+</dx-data-grid>

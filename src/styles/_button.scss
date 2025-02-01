@@ -1,0 +1,16 @@
+@use 'colors' as *;
+@use 'fonts' as *;
+
+.dx-button-normal {
+    font-weight: $font-weight-medium;
+
+    &.primary {
+        background-color: $primary;
+        color: $white;
+    }
+
+    &.secondary {
+        background-color: $gray-light-alt;
+        color: $black;
+    }
+}

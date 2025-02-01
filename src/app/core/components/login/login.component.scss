@@ -1,0 +1,81 @@
+@use 'colors' as *;
+@use 'mixins' as *;
+@use 'fonts' as *;
+
+.login-wrapper {
+  height: 100vh;
+  background-color: $gray-dark;
+  @include flex-justify-center;
+  padding: 1rem;
+}
+
+.login-container {
+  @include flex-direction-column;
+  background-color: $black;
+  color: $snow;
+  border-radius: 10px;
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 450px;
+
+  .logo {
+    max-width: 200px;
+    margin: auto;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  h2 {
+    margin-bottom: 1rem;
+  }
+
+  h2 span:nth-child(1) {
+    color: $snow;
+  }
+
+  h2 span:nth-child(2) {
+    margin-left: 1rem;
+    font-weight: $font-weight-thin;
+  }
+
+  .form-control {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  .forgot-container {
+    @include flex-direction-column;
+    gap: 0.5rem;
+    margin-left: auto;
+    margin-bottom: 1rem;
+    color: $gray-light;
+    font-weight: $font-weight-thin;
+
+    &>* {
+      cursor: pointer;
+    }
+  }
+}
+
+.login-button {
+  width: 100%;
+  background-color: $primary;
+  margin: 1rem 0;
+  font-weight: $font-weight-medium;
+  color: $white;
+
+  &:hover {
+    background-color: $primary;
+  }
+
+  &:focus {
+    background-color: $primary;
+  }
+}
+
+
+@media (min-width: 767px) {
+  .login-container {
+    padding: 2rem;
+  }
+}

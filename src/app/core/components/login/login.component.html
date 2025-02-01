@@ -1,0 +1,55 @@
+<div class="login-wrapper">
+  <div class="login-container">
+    <img src="assets/img/SC_vertical.png" alt="logo" class="logo" />
+    <h2>
+      <span>Welcome.</span>
+      <span>Please login.</span>
+    </h2>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onLogin()" class="login-form">
+      <dx-text-box
+        formControlName="username"
+        [placeholder]="'Username'"
+        class="form-control"
+      >
+        <dx-validator>
+          <dxi-validation-rule
+            type="required"
+            message="Username is required"
+          ></dxi-validation-rule>
+        </dx-validator>
+      </dx-text-box>
+
+      <dx-text-box
+        formControlName="password"
+        [placeholder]="'Password'"
+        [(mode)]="passwordMode"
+        class="form-control"
+      >
+        <dxi-button
+          name="today"
+          location="after"
+          [options]="passwordButton"
+        ></dxi-button>
+        <dx-validator>
+          <dxi-validation-rule
+            type="required"
+            message="Password is required"
+          ></dxi-validation-rule>
+        </dx-validator>
+      </dx-text-box>
+
+      <dx-button
+        type="default"
+        [useSubmitBehavior]="true"
+        text="Log in"
+        class="full-width login-button"
+      ></dx-button>
+    </form>
+
+    <div class="forgot-container">
+      <span (click)="navigateToForgottenPassword()">Forgot password</span>
+      <span (click)="navigateToForgottenUsername()">Forgot username</span>
+    </div>
+  </div>
+</div>
